@@ -1,0 +1,70 @@
+{
+  "name": "multer-flydrive-engine",
+  "version": "1.0.0",
+  "description": "A multer storage engine for flydrive's fluent storage interface",
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
+  "scripts": {
+    "test": "mocha",
+    "build": "npm run clean && tsc",
+    "clean": "rimraf build",
+    "lint": "eslint --ext js,ts src",
+    "prepublishOnly": "npm run build"
+  },
+  "files": [
+    "build"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "github.com/pdspicer/multer-flydrive-engine"
+  },
+  "keywords": [
+    "multer",
+    "flydrive",
+    "upload",
+    "storage",
+    "engine",
+    "aws",
+    "s3",
+    "promise",
+    "async",
+    "spaces",
+    "google",
+    "cloud"
+  ],
+  "author": "Paul Spicer <pdspicer@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@slynova/flydrive": "^0.3.1",
+    "@types/express": "^4.17.2",
+    "@types/multer": "^1.4.2",
+    "@typescript-eslint/eslint-plugin": "^2.19.2",
+    "@typescript-eslint/parser": "^2.19.2",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.0",
+    "prettier": "^1.19.1",
+    "rimraf": "^3.0.2",
+    "typescript": "^3.7.5"
+  },
+  "dependencies": {},
+  "eslintConfig": {
+    "extends": [
+      "plugin:@typescript-eslint/recommended",
+      "prettier",
+      "prettier/@typescript-eslint"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "plugins": [
+      "@typescript-eslint"
+    ]
+  },
+  "prettier": {
+    "arrowParens": "always",
+    "quoteProps": "consistent",
+    "semi": true,
+    "useTabs": true,
+    "singleQuote": true,
+    "trailingComma": "es5",
+    "printWidth": 120
+  }
+}
