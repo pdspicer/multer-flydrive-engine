@@ -8,22 +8,22 @@ backing storage service you choose to configure through flydrive.
 var storage = new StorageManager({
   disks: {
     local: {
-			driver: 'local',
-			root: process.cwd(),
-		},
+      driver: 'local',
+      root: process.cwd(),
+    },
     s3: {
-			driver: 's3',
-			key: 'AWS_S3_KEY',
-			secret: 'AWS_S3_SECRET',
-			region: 'AWS_S3_REGION',
-			bucket: 'AWS_S3_BUCKET',
-		}
+      driver: 's3',
+      key: 'AWS_S3_KEY',
+      secret: 'AWS_S3_SECRET',
+      region: 'AWS_S3_REGION',
+      bucket: 'AWS_S3_BUCKET',
+	}
   }
 });
 
 var storageEngine = FlydriveStorageEngine({
   async disk (req, file) {
-    return req.query.dest === 's3' ? storage.disk('s3) : storage.disk('local');
+    return req.query.dest === 's3' ? storage.disk('s3') : storage.disk('local');
   },
   async destination (req, file) {
     return '/tmp/my-uploads';
@@ -31,7 +31,7 @@ var storageEngine = FlydriveStorageEngine({
   async filename (req, file, cb) {
     return file.fieldname + '-' + Date.now();
   }
-})
+});
 
 var upload = multer({ storage: storageEngine });
 ```
